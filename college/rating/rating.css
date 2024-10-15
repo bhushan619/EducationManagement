@@ -1,0 +1,9 @@
+﻿.rating {   padding:0px; margin:0px; }
+.rating li { list-style: none; float: left;      padding:0px; margin:0px;}
+.rating li a { display: block; width: 20px; height: 20px; padding:0px; margin:0px;
+                overflow: hidden; text-indent: -20px; background-image: url(rating.png);
+                 background-repeat: no-repeat; text-decoration:none; }
+.rating li a:hover { background-color: transparent; text-decoration: none; }
+.rating li .hover { background-position: 0px -20px; }
+.rating li .full { background-position: 0px; }
+    

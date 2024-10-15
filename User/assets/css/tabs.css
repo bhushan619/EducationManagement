@@ -1,0 +1,395 @@
+﻿
+
+
+/* start our expert css*/
+.profile:nth-child(even) {
+  clear: left;
+}
+.profile {
+  position: relative;
+  margin: 10px 0 20px;
+  -moz-box-shadow: 0 0 5px #ccc;
+	-webkit-box-shadow: 0 0 5px #ccc;
+	box-shadow: 0 0 5px #ccc;
+	border: solid #fff 5px;
+}
+.profile-header {
+  position: absolute;
+  top: 0;
+}
+
+.profile-content {
+  font-size: 17px;
+  padding: 27px 20px 0 0;
+  line-height: 1.4em;
+  margin: 0 0 0 125px;
+}
+
+.profile-footer {
+  position: absolute;
+  top: 121px;
+  width: 100px;
+  text-align: center;
+}
+
+.profile-header img {
+  float: left;
+  height:140px;
+  width:140px;
+}
+.img-circle {
+  border-radius: 50%;
+   border:2px solid #C0C0C0;
+   
+}
+.profile-content .lead {
+  font-size: 1.3em;
+  line-height: 100%;
+  font-style: italic;
+  margin: 3px 0 20px;
+}
+.profile-content {
+  font-size: 17px;
+  padding: 27px 20px 0 0;
+  line-height: 1.4em;
+  margin: 0 0 0 125px;
+}
+
+
+.profile-content h3 {
+  margin: 0;  font-size: 17px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b3b3b1;
+  font-weight: 400; line-height: 1.3em;
+  font-family: lato,"Helvetica Neue",Arial,sans-serif;
+  font-weight: 600;
+}
+
+.tilt {
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+         
+}
+ 
+.tilt:hover {
+  -webkit-transform: rotate(-10deg);
+     -moz-transform: rotate(-10deg);
+       -o-transform: rotate(-10deg);
+      -ms-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+
+
+
+/* end our expert css*/
+
+
+.autocomplete_CompletionListElement
+{
+    margin: 0px;
+    background-color: White;
+    cursor: default;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:180px;
+    text-align: left; 
+    
+    list-style:none;
+}
+
+/* Tab Content */
+ul.tabs
+{
+    padding: 8px 0;
+    font-size: 0;
+    margin:0;
+    list-style-type: none;
+    text-align: left; /*set to left, center, or right to align the tabs as desired*/     
+    border-bottom:none;   
+   
+}
+        
+ul.tabs li
+{
+    display: inline;
+    margin: 0;
+    margin-right:-1px; /*distance between tabs*/
+}
+        
+ul.tabs li a
+{    
+    font: normal 15px 'PT Sans Caption', sans-serif ;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 10px;    
+    border-right:none;
+    color: #000;    
+    outline:none;
+     -webkit-border-radius: 10px 10px 0px 0px;-moz-border-radius: 10px 10px 0px 0px;border-radius: 10px 10px 0px 0px;
+} 
+       
+ul.tabs li:last-child a
+{
+     
+} 
+        
+ul.tabs li a:visited
+{
+    color: #000;
+}
+        
+ul.tabs li a:hover
+{
+    text-decoration: none;
+    color:#888;
+}
+        
+ul.tabs li.selected a, ul.tabs li.selected a:hover
+{
+    position: relative;
+    top: 0px;
+    font-weight:bold;
+    background: #B49293;
+    color:#fff;
+}
+        
+        
+ul.tabs li.selected a:hover
+{
+    text-decoration: none;
+}
+
+.tabcontents
+{   
+  text-align: center;
+  width:auto;
+  font-size: 20px;
+  padding: 10px 10px;  
+  background: #B49293;   
+  color: white; 
+  height:60px;
+}
+ @media (max-width:320px)
+{
+    .tabcontents
+    {
+        height:inherit; 
+       
+    }
+    .homeheader
+{
+    padding-left: 1px; margin-top: 50px;
+    height:200px;
+}
+
+
+.autocomplete_CompletionListElement
+{
+    margin: 0px;
+    background-color: White;
+    cursor: default;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:120px;
+    text-align: left; 
+    z-index:10000;
+    list-style:none;
+}
+}
+    
+    @media (max-width:360px)
+{.autocomplete_CompletionListElement
+{
+    margin: 0px;
+    background-color: White;
+    cursor: default;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:120px;
+    text-align: left; 
+    z-index:10000;
+    list-style:none;
+}
+    .tabcontents
+    {
+        height:inherit; 
+       
+    }
+    .homeheader
+{
+    padding-left: 1px; margin-top: 50px;
+    height:200px;
+}}
+ @media (max-width:768px)
+{.autocomplete_CompletionListElement
+{
+    margin: 0px;
+    background-color: White;
+    cursor: default;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:120px;
+    text-align: left; 
+    z-index:10000;
+    list-style:none;
+}
+    .tabcontents
+    {
+        height:inherit; 
+       
+    }
+    .homeheader
+{
+    padding-left: 1px; margin-top: 50px;
+    height:200px;
+}}
+
+@media (max-width:800px)
+{.autocomplete_CompletionListElement
+{
+    margin: 0px;
+    background-color: White;
+    cursor: default;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:120px;
+    text-align: left; 
+    z-index:10000;
+    list-style:none;
+}
+    .tabcontents
+    {
+        height:inherit; 
+       
+    }
+    .homeheader
+{
+    padding-left: 1px; margin-top: 50px;
+    height:200px;
+}}
+@media (max-width:980px)
+{.autocomplete_CompletionListElement
+{
+    margin: 0px;
+    background-color: White;
+    cursor: default;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:120px;
+    text-align: left; 
+    z-index:10000;
+    list-style:none;
+}
+    .tabcontents
+    {
+        height:inherit; 
+       
+    }
+    .homeheader
+{
+    padding-left: 1px; margin-top: 50px;
+    height:200px;
+}}
+ .txtbx{ 
+	color:#000; 
+	width:100%;
+	margin-bottom:1em;
+	outline:none;
+	border: solid 1.5px;
+	font-size:medium;
+	padding: 0.5em 0.5em;
+	
+	border-color:#9A9A9A #EEEEEE #EEEEEE #9A9A9A;
+}
+ .btns{
+	text-align:center;
+	float:right;
+	color:#8B161A; 
+	outline:none;
+	padding:0.2em 1em;
+	border:1px solid #B8ABAB; 
+}
+.btns:hover{
+	background-color:#8B161A; 
+	color:#fff; 
+	 
+}
+.accordionContent {
+background-color: #fafafa;
+border-color: -moz-use-text-color #7B7B7B #7B7B7B;
+border-right: 1px solid #7B7B7B;
+border-style: none solid solid;
+border-width: medium 1px 1px;
+border-color: lightgrey;
+width:100%;
+font-size:11px;
+}
+.accordionHeaderSelected {
+ background-color: #1b4969;
+border: 1px solid #fafafa;
+color:white;
+cursor: pointer;
+font-family: Verdana; 
+font-weight: bold;
+margin-top: 3px;
+padding: 3px;
+width:100%;
+font-size:15px;
+}
+.accordionSubHeaderSelected {
+background-color: #1b4969;
+border: 1px solid #fafafa;
+color: #fff;
+cursor: pointer;
+font-family: Verdana; 
+font-weight: bold;
+margin-top: 3px;
+padding: 3px;
+width:100%;
+font-size:13px;
+}
+.accordionHeader {
+background-color: #1b4969;
+border: 1px solid #7B7B7B;
+color: aliceblue;
+cursor: pointer;
+font-family: Verdana;
+font-weight: bold;
+margin-top: 3px;
+padding: 3px;
+width:100%; 
+font-size:15px;
+}
+.accordionSubHeader {
+background-color: #90a1ae;
+border: 1px solid #fafafa;
+color: white;
+cursor: pointer;
+font-family: Verdana;
+font-weight: bold;
+margin-top: 3px;
+padding: 5px;
+width:100%; 
+font-size:13px;
+    
+}
+.accpaddingheader
+{
+    padding-left:30px;
+}
+.accpadding
+{
+    padding-left:50px;
+}
+.accpaddingcon
+{
+    padding-left:70px;
+    color: #7B7B7B;
+}
+.facPadding{
+    padding:10px;
+}

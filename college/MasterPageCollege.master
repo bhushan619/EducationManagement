@@ -1,0 +1,221 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageCollege.master.cs" Inherits="college_MasterPageCollege" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head runat="server">
+    <title>coursekatta</title>
+  
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- LIBRARY FONT-->
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,900,300">
+    <link type="text/css" rel="stylesheet" href="assets/font/font-icon/font-awesome-4.4.0/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="assets/font/font-icon/font-svg/css/Glyphter.css">
+    <!-- LIBRARY CSS-->
+    <link type="text/css" rel="stylesheet" href="assets/libs/animate/animate.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/bootstrap-3.3.5/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/owl-carousel-2.0/assets/owl.carousel.css">
+     <link type="text/css" rel="stylesheet" href="assets/libs/selectbox/css/jquery.selectbox.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/fancybox/css/jquery.fancybox.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/fancybox/css/jquery.fancybox-buttons.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/media-element/build/mediaelementplayer.min.css">
+    <!-- STYLE CSS    -->
+    <link href="assets/images/favicon.ico" rel="shortcut icon" type="image/png">
+    <link href="assets/css/color-1.css" rel="stylesheet" />
+    <script src="assets/libs/jquery/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/js-cookie/js.cookie.js"></script>
+    <script>if ((Cookies.get('color-skin') != undefined) && (Cookies.get('color-skin') != 'color-1')) {
+    $('#color-skins').attr('href', 'assets/css/' + Cookies.get('color-skin') + '.css');
+} else if ((Cookies.get('color-skin') == undefined) || (Cookies.get('color-skin') == 'color-1')) {
+    $('#color-skins').attr('href', 'assets/css/color-1.css');
+}
+        function openNewWin(url) {
+
+            var x = window.open(url, 'mynewwin', 'width=600,height=400,left=100, resizable=yes,scrollbars=yes ,menubar=yes');
+
+            x.focus();
+
+        }
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-97414451-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- HEADER-->
+    <form id="form1" runat="server">
+        <header>
+            <div class="header-main homepage-01">
+                <div class="container">
+                    <div class="header-main-wrapper">
+                        <div class="navbar-heade">
+                            <div class="logo pull-left">
+                                <asp:HyperLink ID="homes" runat="server" NavigateUrl="~/college/Default.aspx" class="header-logo">
+                                    <img src="../assets/images/logo-color-1.png" alt="" /></asp:HyperLink>
+                            </div>
+                            <button type="button" data-toggle="collapse" style="background-color: #1b4969;margin-bottom:5px"  data-target=".navigation" class="navbar-toggle coursekatta-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <nav class="navigation collapse navbar-collapse pull-right">
+                            <ul class="nav-links nav navbar-nav">
+                                <li>
+                                    <asp:HyperLink ID="Timeline" runat="server" CssClass="main-menu fa fa-home" NavigateUrl="~/User/Default.aspx">
+                                    <p class="menuP">
+                                        Home
+                                    </p></asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="Home" runat="server" NavigateUrl="~/User/UserProfiles.aspx" Style="color: #fff;" CssClass="main-menu  fa fa-handshake-o">
+                                        <p class="menuP">
+                                            Contacts 
+                                            <asp:Label CssClass="badge" ID="lblContactRequests" runat="server" Text="ss"></asp:Label>
+                                        </p>
+                                    </asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="Profiles" runat="server" Style="color: #fff;" NavigateUrl="~/User/Inbox.aspx" CssClass="main-menu  fa fa-envelope">
+                                        <p class="menuP">
+                                            Messages 
+                                            <asp:Label CssClass="badge" ID="lblMessages" runat="server"></asp:Label>
+                                        </p>
+                                    </asp:HyperLink>
+                                </li>
+                                <%--<li>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" Style="color: #fff;" NavigateUrl="~/User/View.aspx" CssClass="main-menu  fa fa-search"></asp:HyperLink>
+                                    <p class="menuP">
+                                        Search
+                                    </p>
+                                </li>--%>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink4" runat="server" Style="color: #fff;" NavigateUrl="~/User/Notifications.aspx" CssClass="main-menu  fa fa-globe">
+                                        <p class="menuP">Notifications <span>
+                                            <asp:Label CssClass="badge" ID="lblNotifications" runat="server"></asp:Label>
+                                        </span></p>
+                                    </asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" Style="color: #fff;" NavigateUrl="~/User/View.aspx" CssClass="main-menu  fa fa-book ">
+                                        <p class="menuP">Education <span>
+                                            <asp:Label CssClass="badge" ID="Label1" runat="server"></asp:Label>
+                                        </span></p>
+                                    </asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink6" runat="server" Style="color: #fff;" NavigateUrl="~/User/Jobs.aspx" CssClass="main-menu fa fa-briefcase  ">
+                                        <p class="menuP">Career <span>
+                                            <asp:Label CssClass="badge" ID="Label2" runat="server"></asp:Label>
+                                        </span></p>
+                                    </asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/User/Setting.aspx" Style="color: #fff;" CssClass="main-menu  fa fa-cog">
+                                    <p class="menuP">Settings</p></asp:HyperLink>
+                                </li>
+                                <%--  <li>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/User/Support.aspx" Style="color: #fff;" CssClass="main-menu  fa fa-question-circle"></asp:HyperLink>
+                                    <p class="menuP">Support</p>
+                                </li>--%>
+                                <li>
+                                    <asp:LinkButton ID="HyperLink7" runat="server" OnClick="lnkEditProfile_Click" Style="color: #fff;" CssClass="main-menu  fa fa-user">
+                                    <p class="menuP">Profile</p></asp:LinkButton>
+
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Logout.aspx" Style="color: #fff;" CssClass="main-menu  fa fa-power-off">
+                                    <p class="menuP">Logout</p></asp:HyperLink>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- WRAPPER-->
+        <div id="wrapper-content">
+            <!-- PAGE WRAPPER-->
+            <div id="page-wrapper">
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <!-- CONTENT-->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <!-- BUTTON BACK TO TOP-->
+            <div id="back-top"><a href="#top"><i class="fa fa-angle-double-up"></i></a></div>
+        </div>
+
+    </form>
+   <!-- FOOTER-->
+
+    <footer>
+         <div class="footer-main">
+            <div class="container">
+                <div class="footer-main-wrapper">
+                    <div class="row">
+                        <div class="col-lg-9 text-center">
+
+                            <ul class="list-inline">
+                                <li style="float: left;"><a href="WhatWeDo.aspx">About |</a></li>
+                                <li style="float: left;"><a href="Institutes.aspx">Institution |</a></li>
+                                <li style="float: left;"><a href="Students.aspx">For Students |</a></li>
+                                <li style="float: left;"><a href="TACPP.aspx">T & C's |</a></li>
+                                <li style="float: left;"><a href="PrivacyPolicy.aspx">Privacy Policy |</a></li>
+                                <li style="float: left;"><a href="RefundPolicy.aspx">Refund Policy |</a></li>
+                                <li style="float: left;"><a href="AdPolicy.aspx">Ads Policy |</a></li>
+                                 <li style="float: left;"><a href="Contact.aspx">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 text-center">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="http://anuvaasoft.com" target="_blank"><i class="fa fa-copyright"></i>by Anuvaa Softech Private Limited</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LIBS-->
+    <script>if ((Cookies.get('color-skin') != undefined) && (Cookies.get('color-skin') != 'color-1')) {
+    $('.logo .header-logo img').attr('src', 'assets/images/logo-' + Cookies.get('color-skin') + '.png');
+} else if ((Cookies.get('color-skin') == undefined) || (Cookies.get('color-skin') == 'color-1')) {
+    $('.logo .header-logo img').attr('src', 'assets/images/logo-color-1.png');
+}</script>
+    <script src="assets/libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+    <script src="assets/libs/smooth-scroll/jquery-smoothscroll.js"></script>
+    <script src="assets/libs/owl-carousel-2.0/owl.carousel.min.js"></script>
+    <script src="assets/libs/appear/jquery.appear.js"></script>
+    <script src="assets/libs/count-to/jquery.countTo.js"></script>
+    <script src="assets/libs/wow-js/wow.min.js"></script>
+    <script src="assets/libs/selectbox/js/jquery.selectbox-0.2.min.js"></script>
+    <script src="assets/libs/fancybox/js/jquery.fancybox.js"></script>
+    <script src="assets/libs/fancybox/js/jquery.fancybox-buttons.js"></script>
+    <!-- MAIN JS-->
+    <script src="assets/js/main.js"></script>
+    <!-- LOADING SCRIPTS FOR PAGE-->
+    <script src="assets/libs/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/libs/isotope/fit-columns.js"></script>
+    <script src="assets/js/pages/homepage.js"></script>
+</body>
+
+ 
+</html>
+

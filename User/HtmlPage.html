@@ -1,0 +1,318 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <?php include('include/headscript.php');?>
+</head>
+<body>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="mother-grid-inner">
+                <!--header start here--><?php include('include/headtitle.php');?>
+
+                <!--inner block start here-->
+                <div class="inner-block">
+                    <!--market updates updates-->
+
+                    <div class="market-updates">
+                        <div class="col-md-8 compose-right">
+                            <div class="inbox-details-heading">
+                                Add Users
+                            </div>
+                            <div class="inbox-details-default">
+                                <div class="inbox-details-body">
+
+<?php
+$pinnumber = $_REQUEST['pinnumber'];
+$refname = $_REQUEST['refname'];
+$name = $_REQUEST['name'];
+$email = $_REQUEST['email'];
+$mobile = $_REQUEST['mobile'];
+$password = $_REQUEST['password'];
+$username = $_REQUEST['username'];
+$ReferralList = $_REQUEST['ReferralList'];
+$pname = $_REQUEST['pname'];
+$position = $_REQUEST['position'];
+$sdate = date('d/m/Y');
+if(isset($_REQUEST['submit']))
+{
+    $parent_username = $_SESSION["username"];
+    $chk_ref_bd = mysql_query("SELECT * FROM `treeview` WHERE username = '$refname'");
+    $count_ref_db = mysql_num_rows($chk_ref_bd);
+    $chk_spo_bd = mysql_query("SELECT * FROM `treeview` WHERE username = '$ReferralList'");
+    $count_spo_db = mysql_num_rows($chk_spo_bd);
+    if($count_ref_db == '0' && $count_spo_db == '0')
+    {
+        $error = "Please enter Valid Sponsor id and Referral id..";
+    }
+    else {
+        if ($position == '1') {
+            $show = mysql_query("SELECT * FROM `treeview` WHERE referrallist='$refname' and position='$position'");
+            $count = mysql_num_rows($show);
+            if ($count == '1') {
+                $error = "USER IS ALREADY ADDED AT THIS POSITION PLEASE ADD ANOTHER REFERAL ID OR POSITION";
+            } else {
+                $show = mysql_query("SELECT * FROM `treeview` WHERE username='$refname'");
+                $row = mysql_fetch_array($show);
+                $pid = $row['id'];
+                $amt = $pname * 5 /100;
+                //mysql_query("INSERT INTO `treeview`(`id`, `name`, `pinnumber`, `pname`, `email`, `mobile`, `username`, `referrallist`, `sponser`, `position`, `parent_id`, `status`) VALUES ('','$name','$pinnumber','$pname','$email','$mobile','$username','$ReferralList','$refname','$position','$userid','0'");
+                mysql_query("INSERT INTO `treeview` (`id`, `name`, `pinnumber`, `pname`, `email`, `mobile`, `username`, `referrallist`, `sponser`, `position`, `parent_id`, `status`) VALUES (NULL, '$name', '$pinnumber', '$pname', '$email', '$mobile', '$username', '$refname', '$ReferralList', '$position', '$pid', '0')");
+                mysql_query("INSERT INTO `tbl_users`(`id`, `username`, `pinnumber`, `refname`, `ReferralList`, `password`, `name`, `emailid`, `mobile`, `nominee`, `gender`, `address`, `city`, `state`, `dateofbirth`, `profession`, `industry`, `companyname`, `accountstatus`, `planname`, `planfees`, `service`, `businessvolume`, `payoutmode`, `accountholder`, `bankname`, `branchname`, `accountno`, `ifsc`, `userpic`, `status`, `joindate`) VALUES ('','$username','$pinnumber','$refname','$ReferralList','$password','$name','$email','$mobile','nominee','gender','address','city','state','dateofbirth','profession','industry','companyname','Active','$pname','$pname','service','businessvolume','payoutmode','accountholder','bankname','branchname','accountno','ifsc','userpic','0','$sdate')");
+                mysql_query("UPDATE `generate` SET `status`='2' WHERE pin='$pinnumber'");
+                mysql_query("INSERT INTO `monthlyrecharge`(`id`, `username`, `amount`, `date`, `status`) VALUES ('','$username','350','$sdate','0')");
+                mysql_query("INSERT INTO `userbouns`(`id`, `username`, `refid`, `amount`, `date`, `status`,`Refference`) VALUES ('','$ReferralList','$username','$amt','$sdate','0','Not Paid')");
+              //  mysql_query("INSERT INTO `userbouns`(`id`, `username`, `refid`, `amount`, `date`, `status`) VALUES ('','$ReferralList','$username','$pname','$sdate','0')");
+                //Update Query
+              //  echo '<script type="text/javascript">window.location = "myteam.php"; </script>';
+            }
+        } else {
+            $show = mysql_query("SELECT * FROM `treeview` WHERE referrallist='$refname' and position='$position'");
+            $count = mysql_num_rows($show);
+            if ($count == '1') {
+                $error = "USER IS ALREADY ADDED AT THIS POSITION PLEASE ADD ANOTHER REFERAL ID OR POSITION";
+            } else {
+                $show = mysql_query("SELECT * FROM `treeview` WHERE username='$refname'");
+                $row = mysql_fetch_array($show);
+                $pid = $row['id'];
+                $amt = $pname * 5 /100;
+                //mysql_query("INSERT INTO `treeview`(`id`, `name`, `pinnumber`, `pname`, `email`, `mobile`, `username`, `referrallist`, `sponser`, `position`, `parent_id`, `status`) VALUES ('','$name','$pinnumber','$pname','$email','$mobile','$username','$ReferralList','$refname','$position','$userid','0'");
+                mysql_query("INSERT INTO `treeview` (`id`, `name`, `pinnumber`, `pname`, `email`, `mobile`, `username`, `referrallist`, `sponser`, `position`, `parent_id`, `status`) VALUES (NULL, '$name', '$pinnumber', '$pname', '$email', '$mobile', '$username', '$refname', '$ReferralList', '$position', '$pid', '0')");
+                mysql_query("INSERT INTO `tbl_users`(`id`, `username`, `pinnumber`, `refname`, `ReferralList`, `password`, `name`, `emailid`, `mobile`, `nominee`, `gender`, `address`, `city`, `state`, `dateofbirth`, `profession`, `industry`, `companyname`, `accountstatus`, `planname`, `planfees`, `service`, `businessvolume`, `payoutmode`, `accountholder`, `bankname`, `branchname`, `accountno`, `ifsc`, `userpic`, `status`, `joindate`) VALUES ('','$username','$pinnumber','$refname','$ReferralList','$password','$name','$email','$mobile','nominee','gender','address','city','state','dateofbirth','profession','industry','companyname','Active','$pname','$pname','service','businessvolume','payoutmode','accountholder','bankname','branchname','accountno','ifsc','userpic','0','$sdate')");
+                mysql_query("UPDATE `generate` SET `status`='2' WHERE pin='$pinnumber'");
+                mysql_query("INSERT INTO `monthlyrecharge`(`id`, `username`, `amount`, `date`, `status`) VALUES ('','$username','350','$sdate','0')");
+                mysql_query("INSERT INTO `userbouns`(`id`, `username`, `refid`, `amount`, `date`, `status`,`Refference`) VALUES ('','$ReferralList','$username','$amt','$sdate','0','Not Paid')");
+                //  mysql_query("INSERT INTO `userbouns`(`id`, `username`, `refid`, `amount`, `date`, `status`) VALUES ('','$ReferralList','$username','$pname','$sdate','0')");
+                //Update Query
+              //  echo '<script type="text/javascript">window.location = "myteam.php"; </script>';
+            }
+        }
+        $left_count = 0;
+        $right_count = 0;
+        $show = mysql_query("SELECT * FROM `userbouns` WHERE username=(select username from treeview where id=(select parent_id from treeview where username='$ReferralList'))");
+        $count = mysql_num_rows($show);
+        if ($count == '1') {
+            $childs = array();
+            $q_for_count = mysql_query("SELECT * FROM `treeview` WHERE parent_id=(select parent_id from `treeview` where username = '$ReferralList')");
+            while ($row = mysql_fetch_assoc($q_for_count)) {
+                foreach ($row as $key => $value) {
+                    if($key == "position"){
+                        if($row[$key] == "1"){
+                            $left_count = $left_count + 1;
+                        }else if($row[$key] == "2"){
+                            $right_count = $right_count + 1;
+                        }
+                    }
+                    if($key == "username"){
+                        if($left_count == 1){
+                            $childs[0] = $row[$key];
+                        }
+                        if($right_count == 1){
+                            $childs[1] = $row[$key];
+                        }
+                    }
+                }
+            }
+            $count_sub_user = 0;
+            if($left_count == 1 && $right_count == 1){
+                foreach ($childs as $item){
+                    $q_for_count_1 = mysql_query("SELECT * FROM `treeview` WHERE parent_id=(select id from `treeview` where username = '$item')");
+                    $c1 = mysql_num_rows($q_for_count_1);
+                    $count_sub_user = $count_sub_user + $c1;
+                }
+            }
+            if($count_sub_user == 1){
+                $q_get_data = mysql_query("SELECT * FROM `treeview` WHERE id=(select parent_id from `treeview` where username = '$ReferralList')");
+                $row = mysql_fetch_array($q_get_data);
+                $uname_1 = $row["username"];
+                $refid_1 = $row["refid"];
+                $amount_1 = $row["amount"];
+                $amount_1 = $amount_1 + 350;
+                mysql_query("INSERT INTO `userbouns`(`id`, `username`, `refid`, `amount`, `date`, `status`,`Refference`) VALUES ('','$uname_1','$ReferralList','350','$sdate','0','Fisrt')");
+            }
+        }
+        else if($count == 2) {
+            $childs = array();
+            $q_for_count = mysql_query("SELECT * FROM `treeview` WHERE parent_id=(select parent_id from `treeview` where username = '$ReferralList')");
+            while ($row = mysql_fetch_assoc($q_for_count)) {
+                foreach ($row as $key => $value) {
+                    if ($key == "position") {
+                        if ($row[$key] == "1") {
+                            $left_count = $left_count + 1;
+                        } else if ($row[$key] == "2") {
+                            $right_count = $right_count + 1;
+                        }
+                    }
+                    if ($key == "username") {
+                        if ($left_count == 1) {
+                            $childs[0] = $row[$key];
+                        }
+                        if ($right_count == 1) {
+                            $childs[1] = $row[$key];
+                        }
+                    }
+                }
+            }
+            $count_sub_user_count = 0;
+            if ($left_count == 1 && $right_count == 1) {
+                $left_count = 0;
+                $right_count = 0;
+                $count_sub_user = array();
+                foreach ($childs as $item) {
+                    $q_for_count = mysql_query("SELECT * FROM `treeview` WHERE parent_id=(select parent_id from `treeview` where username = '$item')");
+                    while ($row = mysql_fetch_assoc($q_for_count)) {
+                        foreach ($row as $key => $value) {
+                            if ($key == "position") {
+                                if ($row[$key] == "1") {
+                                    $left_count = $left_count + 1;
+                                } else if ($row[$key] == "2") {
+                                    $right_count = $right_count + 1;
+                                }
+                            }
+                            if ($key == "username") {
+                                if ($left_count == 1) {
+                                    $count_sub_user[0] = $row[$key];
+                                }
+                                if ($right_count == 1) {
+                                    $count_sub_user[1] = $row[$key];
+                                }
+                            }
+                        }
+                    }
+                }
+                foreach ($count_sub_user as $item) {
+                    $q_for_count = mysql_query("SELECT * FROM `treeview` WHERE parent_id=(select parent_id from `treeview` where username = '$item')");
+                    while ($row = mysql_fetch_assoc($q_for_count)) {
+                        foreach ($row as $key => $value) {
+                            $count_sub_user_count = $count_sub_user_count + 1;
+                        }
+                    }
+                }
+                if ($count_sub_user_count == 4) {
+                    $q_get_data = mysql_query("SELECT * FROM `treeview` WHERE id=(select parent_id from `treeview` where username = '$ReferralList')");
+                    $row = mysql_fetch_array($q_get_data);
+                    $uname_1 = $row["username"];
+                    $refid_1 = $row["refid"];
+                    $amount_1 = $row["amount"];
+                    $amount_1 = $amount_1 + 350;
+                    mysql_query("INSERT INTO `userbouns`(`id`, `username`, `refid`, `amount`, `date`, `status`,`Refference`) VALUES ('','$uname_1','$ReferralList','350','$sdate','0','Second')");
+                }
+            }
+        }
+        $this_time = date("H:i:s");
+        $q_for_count = mysql_query("SELECT * FROM `treeview` WHERE id=(select max(id) from `treeview` where referrallist = '$ReferralList')");
+        while ($row = mysql_fetch_assoc($q_for_count)) {
+            foreach ($row as $key => $value) {
+                if($key == "joindate") {
+                    $user_time = $row[$key];
+                    }
+            }
+        }
+        $split_time = explode( ',', $user_time );
+        $time_flag = 0 ;
+        if($split_time > strtotime("00.00.00")&& $split_time < strtotime("05.59.00") ){
+            $time_flag = 1;
+        } else if($split_time > strtotime("06.00.00")&& $split_time < strtotime("11.59.00") ){
+            $time_flag = 1;
+        } else if($split_time > strtotime("12.00.00")&& $split_time < strtotime("17.59.00") ){
+            $time_flag = 1;
+        } else if($split_time > strtotime("18.00.00")&& $split_time < strtotime("23.59.00") ){
+            $time_flag = 1;
+        }
+        if($time_flag == 1) {
+            $show = mysql_query("SELECT * FROM `userbouns` WHERE Refference='Second' and username=(select username from treeview where id=(select parent_id from treeview where id=(select parent_id from treeview where username='$ReferralList'))");
+            $count = mysql_num_rows($show);
+            if ($count == 1) {
+                $childs = array();
+                $q_for_count = mysql_query("SELECT * FROM `treeview` WHERE parent_id=(select parent_id from `treeview` where username = '$ReferralList')");
+                while ($row = mysql_fetch_assoc($q_for_count)) {
+                    foreach ($row as $key => $value) {
+                        if ($key == "position") {
+                            if ($row[$key] == "1") {
+                                $left_count = $left_count + 1;
+                            } else if ($row[$key] == "2") {
+                                $right_count = $right_count + 1;
+                            }
+                        }
+                    }
+                }
+                $count_sub_user = 0;
+                if ($left_count == 1 && $right_count == 1) {
+                    $q_get_data = mysql_query("SELECT * FROM `treeview` WHERE id=(select parent_id from `treeview` WHERE id=(select parent_id from `treeview` where username = '$ReferralList'))");
+                    $row = mysql_fetch_array($q_get_data);
+                    $uname_1 = $row["username"];
+                    $refid_1 = $row["refid"];
+                    $amount_1 = $row["amount"];
+                    $amount_1 = $amount_1 + 350;
+                    mysql_query("INSERT INTO `userbouns`(`id`, `username`, `refid`, `amount`, `date`, `status`,`Refference`) VALUES ('','$uname_1','$ReferralList','350','$sdate','0','Third')");
+                }
+            }
+        }
+        echo '<script type="text/javascript">window.location = "myteam.php"; </script>';
+    }
+}
+?>
+                                    <style>
+                                        #frmCheckUsername {
+                                            border-top: #F0F0F0 2px solid;
+                                            background: #FAF8F8;
+                                            padding: 10px;
+                                        }
+
+                                        .demoInputBox {
+                                            padding: 7px;
+                                            border: #F0F0F0 1px solid;
+                                            border-radius: 4px;
+                                        }
+
+                                        .status-available {
+                                            color: #2FC332;
+                                        }
+
+                                        .status-not-available {
+                                            color: #D60202;
+                                        }
+                                    </style>
+                                    <!--<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>-->
+                                    <script>
+function checkAvailability() {
+	$("#loaderIcon").show();
+	jQuery.ajax({
+	url: "check_availability.php",
+	data:'pinnumber='+$("#pinnumber").val(),
+	type: "POST",
+	success:function(data){
+		$("#user-availability-status").html(data);
+		$("#loaderIcon").hide();
+	},
+	error:function (){}
+	});
+}
+                                    </script>
+
+
+                                    <p style="color:#FF0000;; font-weight:bold;"><?php echo $error; ?></p>
+                                    <form class="com-mail" action="" method="post">
+                                        <div id="frmCheckUsername">
+                                            <!--<input type='text' class='form-control' placeholder="Pin Number" name='pinnumber' maxlength='30' required="" />-->
+                                            <input name="pinnumber" type="text" placeholder="Pin Number" id="pinnumber" class="demoInputBox" onBlur="checkAvailability()"><span id="user-availability-status"></span>
+                                        </div>
+                                        <p><img src="LoaderIcon.gif" id="loaderIcon" style="display:none" /></p>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!--market updates end here-->
+                </div>
+                <!--inner block end here-->
+                <!--copy rights start here-->
+                <?php include('include/footer.php');?>
+                <!--COPY rights end here-->
+            </div>
+        </div>
+        <?php include('include/sidemenu.php');?>
+        <?php include('include/footerscript.php');?>
+</body>
+</html>

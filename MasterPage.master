@@ -1,0 +1,188 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head runat="server">
+    <title>coursekatta </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coursekatta.com is India’s first educational social media site where our efforts are in the direction to bring connectivity in the field of education by providing best edtech solutions.">
+    <!-- LIBRARY FONT-->
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,900,300">
+    <link type="text/css" rel="stylesheet" href="assets/font/font-icon/font-awesome-4.4.0/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="assets/font/font-icon/font-svg/css/Glyphter.css">
+    <!-- LIBRARY CSS-->
+    <link type="text/css" rel="stylesheet" href="assets/libs/animate/animate.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/bootstrap-3.3.5/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/owl-carousel-2.0/assets/owl.carousel.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/selectbox/css/jquery.selectbox.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/fancybox/css/jquery.fancybox.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/fancybox/css/jquery.fancybox-buttons.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/media-element/build/mediaelementplayer.min.css">
+    <link href="assets/images/favicon.ico" rel="shortcut icon" type="image/png">
+
+    <link type="text/css" rel="stylesheet" href="assets/libs/fancybox/css/jquery.fancybox.css">
+    <link type="text/css" rel="stylesheet" href="assets/libs/fancybox/css/jquery.fancybox-buttons.css">
+
+    <!-- STYLE CSS    -->
+    <!--link(type="text/css", rel='stylesheet', href='assets/css/color-1.css', id="color-skins")-->
+    <link href="assets/css/color-1.css" rel="stylesheet" />
+    <script src="assets/libs/jquery/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/js-cookie/js.cookie.js"></script>
+    <script>if ((Cookies.get('color-skin') != undefined) && (Cookies.get('color-skin') != 'color-1')) {
+            $('#color-skins').attr('href', 'assets/css/' + Cookies.get('color-skin') + '.css');
+        } else if ((Cookies.get('color-skin') == undefined) || (Cookies.get('color-skin') == 'color-1')) {
+            $('#color-skins').attr('href', 'assets/css/color-1.css');
+        }
+
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-97414451-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5089150856922795",
+            enable_page_level_ads: true
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- HEADER-->
+
+    <header>
+
+        <div class="header-main homepage-01">
+            <div class="container">
+                <div class="header-main-wrapper">
+                    <div class="navbar-header">
+                        <div class="logo pull-left">
+                            <a href="Default.aspx" class="header-logo">
+                                <img src="assets/images/logo-color-1.png" alt="coursekatta" /></a>
+                        </div>
+                        <button type="button" data-toggle="collapse" data-target=".navigation" class="navbar-toggle coursekatta-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    </div>
+                    <nav class="navigation collapse navbar-collapse pull-right" style="padding-top: 20px;">
+                        <ul class="list-inline">
+                            <li><a href="Login.aspx" class="pagebtn pagebtn-blue" style="padding: 10px 10px;">Login</a></li>
+                            <li><a href="Register.aspx" class="pagebtn pagebtn-blue"  style="padding: 10px 10px;">Register</a></li>
+                        </ul>
+                        <%--<form method="POST" action="SiteLogin.aspx" class="form-inline">
+                            <div class="form-group">
+                                <input type="text" id="txtName" name="unamee" required="required" class="custom-form-control-signup" placeholder="E-Mail" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="txtPass" required="required" name="passe"
+                                    class="custom-form-control-signup" placeholder="Enter Password" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Login" class="pagebtn pagebtn-blue" />
+                            </div>
+                            <div class="form-group">
+                                <a href="RetrievePassword.aspx">Forgot Password?</a>
+                            </div>
+                        </form>--%>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <form id="form1" runat="server">
+        <!-- WRAPPER-->
+        <div id="wrapper-content">
+            <!-- PAGE WRAPPER-->
+            <div id="page-wrapper">
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <!-- CONTENT-->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <!-- BUTTON BACK TO TOP-->
+            <div id="back-top"><a href="#top"><i class="fa fa-angle-double-up"></i></a></div>
+        </div>
+
+    </form>
+    <!-- FOOTER-->
+
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-main-wrapper">
+                    <div class="row">
+                        <div class="col-lg-9 text-center">
+
+                            <ul class="list-inline">
+                                <li style="float: left;"><a href="WhatWeDo.aspx">About |</a></li>
+                                <li style="float: left;"><a href="Institutes.aspx">Institution |</a></li>
+                                <li style="float: left;"><a href="Students.aspx">For Students |</a></li>
+                                <li style="float: left;"><a href="TACPP.aspx">T & C's |</a></li>
+                                <li style="float: left;"><a href="PrivacyPolicy.aspx">Privacy Policy |</a></li>
+                                <li style="float: left;"><a href="RefundPolicy.aspx">Refund Policy |</a></li>
+                                <li style="float: left;"><a href="AdPolicy.aspx">Ads Policy |</a></li>
+                                <li style="float: left;"><a href="FeedBack.aspx">Feedback |</a></li>
+                                <li style="float: left;"><a href="Contact.aspx">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 text-center">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="http://anuvaasoft.com" target="_blank"><i class="fa fa-copyright"></i> by Anuvaa Softech Private Limited</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LIBS-->
+    <script>if ((Cookies.get('color-skin') != undefined) && (Cookies.get('color-skin') != 'color-1')) {
+            $('.logo .header-logo img').attr('src', 'assets/images/logo-' + Cookies.get('color-skin') + '.png');
+        } else if ((Cookies.get('color-skin') == undefined) || (Cookies.get('color-skin') == 'color-1')) {
+            $('.logo .header-logo img').attr('src', 'assets/images/logo-color-1.png');
+        }</script>
+    <script src="assets/libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+    <script src="assets/libs/smooth-scroll/jquery-smoothscroll.js"></script>
+    <script src="assets/libs/owl-carousel-2.0/owl.carousel.min.js"></script>
+    <script src="assets/libs/appear/jquery.appear.js"></script>
+    <script src="assets/libs/count-to/jquery.countTo.js"></script>
+    <script src="assets/libs/wow-js/wow.min.js"></script>
+    <script src="assets/libs/selectbox/js/jquery.selectbox-0.2.min.js"></script>
+    <script src="assets/libs/fancybox/js/jquery.fancybox.js"></script>
+    <script src="assets/libs/fancybox/js/jquery.fancybox-buttons.js"></script>
+    <!-- MAIN JS-->
+    <script src="assets/js/main.js"></script>
+    <!-- LOADING SCRIPTS FOR PAGE-->
+    <script src="assets/libs/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/libs/selectbox/js/jquery.selectbox-0.2.min.js"></script>
+    <script src="assets/libs/isotope/fit-columns.js"></script>
+    <script src="assets/js/pages/homepage.js"></script>
+    <!-- LOADING SCRIPTS FOR PAGE-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqbowR-qg0WYOF-w7jWUPkd4ppUGjG6dY&amp;amp;sensor=false"></script>
+    <script src="assets/js/pages/contact.js"></script>
+</body>
+
+
+</html>
